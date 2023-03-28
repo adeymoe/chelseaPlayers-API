@@ -5,21 +5,22 @@ const PORT =3000
 
 app.use(cors())
 
-const rappers ={
-    '21 savage':{
-        name: 'BIG 4L',
-        birthLocation: 'London, England',
-        age: 21
+const chelseaPlayers ={
+    'kepa arrizabalaga':{
+        age: 28,
+        nationalTeam: 'SPAIN'
     },
-    'kodak black':{
-        name: 'PROJECT BABY',
-        birthLocation: '1804',
-        age: 21
+    'mateo kovacic':{
+        age: 28,
+        nationalTeam: 'CROATIA'
+    },
+    'christian pulisic':{
+        age: 24,
+        nationalTeam: 'USA'
     },
     'unknown':{
-        name: 'nobody',
-        birthLocation: 'Asgard',
-        age: 1000
+        age: 0,
+        nationalTeam: 'not updated'
     }
 }
 
@@ -29,11 +30,11 @@ app.get('/', (request, response) => {
 })
 
 app.get('/api/:name', (request, response) => {
-    const rapperName = request.params.name.toLowerCase()
-    if(rappers[rapperName]){
-        response.json(rappers[rapperName])
+    const playerName = request.params.name.toLowerCase()
+    if(chelseaPlayers[playerName]){
+        response.json(chelseaPlayers[playerName])
     }else{
-        response.json(rappers['unknown'])
+        response.json(chelseaPlayers['unknown'])
     }
 
 })
